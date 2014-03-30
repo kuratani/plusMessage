@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>PlusMessageCtrl</members>
+        <members>PlusMessageCtrlTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>PlusMessageView</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>PlusMessageTab</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>PlusMessageDocuments</members>
+        <members>PlusMessageDocuments/PlusMessageTab.png</members>
+        <name>Document</name>
+    </types>
+    <types>
+        <members>PlusMessageJS</members>
+        <members>PlusMessageResource</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>ja</members>
+        <name>Translations</name>
+    </types>
+    <version>29.0</version>
+</Package>

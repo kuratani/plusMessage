@@ -1,0 +1,190 @@
+body
+	background-color: $background-color
+	font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif
+header
+	background-color: $background-color
+a
+	text-decoration: none
+.modal-header
+	padding: 8px
+.modal-body
+	padding: 8px
+.modal-footer
+	padding: 8px
+.list-group
+	.thumbs
+		display: block
+		position: absolute
+		height: $left-thumb-size * $resolution-scalar
+		overflow: visible
+		z-index: 2
+		.thumb
+			+transition-property(left)
+			+transition-duration(0.2s)
+			+transition-timing-function(linear)
+			display: block
+			position: absolute
+			width: $left-thumb-size * $resolution-scalar
+			height: $left-thumb-size * $resolution-scalar
+			@include border-radius($left-thumb-size * $resolution-scalar, $left-thumb-size * $resolution-scalar)
+	.list-item
+		margin-left: $left-thumb-size * $resolution-scalar + 10px
+		min-height: $left-thumb-size * $resolution-scalar
+		position: relative
+		.info
+			display: block
+			height: 12px
+			margin-top: 5px
+			margin-bottom: 5px
+			.recipient
+				color: $title-color
+				display: inline-block
+				float: left
+				font-size: 12px
+			.date
+				color: $supplement-color
+				display: inline-block
+				float: right
+				right: -60px
+				font-size: 12px
+		.text
+			white-space: pre-wrap
+	.profile
+		min-height: $profile-thumb-size * $resolution-scalar
+		position: relative
+		.thumb
+			+transition-property(left)
+			+transition-duration(0.2s)
+			+transition-timing-function(linear)
+			display: block
+			position: absolute
+			width: $profile-thumb-size * $resolution-scalar
+			height: $profile-thumb-size * $resolution-scalar
+			@include border-radius($profile-thumb-size * $resolution-scalar, $profile-thumb-size * $resolution-scalar)
+		.name
+			color: $title-color
+			margin-left: $profile-thumb-size * $resolution-scalar + 10px
+			font-size: 16px
+		.title
+			color: $supplement-color
+			margin-left: $profile-thumb-size * $resolution-scalar + 10px
+			font-size: 12px
+.list-view
+	.thumbs
+		display: block
+		position: absolute
+		height: $left-thumb-size * $resolution-scalar
+		overflow: visible
+		z-index: 2
+		.thumb
+			+transition-property(left)
+			+transition-duration(0.2s)
+			+transition-timing-function(linear)
+			display: block
+			position: absolute
+			width: $left-thumb-size * $resolution-scalar
+			height: $left-thumb-size * $resolution-scalar
+			@include border-radius(50px, 50px)
+	.other-message
+		margin-left: 60px
+		position: relative
+		padding-bottom: 14px
+		padding-right: 40px
+		.text
+			color: $text-color
+			background-color: $sf1-color-white
+			min-height: 50px
+			padding: 10px
+			margin-top: 2px
+			white-space: pre-wrap
+			@include box-shadow( 0 0 10px $box-shadow-color)
+		.text:after
+			border: 10px solid transparent
+			border-right-color: $sf1-color-white
+			border-left-width: 0px
+			left: -10px
+			content: ""
+			display: block
+			top: 15px
+			position: absolute
+			width: 0px
+		.info
+			display: block
+			height: 12px
+			margin-top: 5px
+		.recipient
+			color: $title-color
+			display: inline-block
+			float: left
+			font-size: 12px
+		.date
+			color: $supplement-color
+			display: inline-block
+			float: right
+			font-size: 12px
+	.my-message
+		margin-left: 100px
+		position: relative
+		padding-bottom: 14px
+		padding-right: 10px
+		.text
+			color: $text-color
+			background-color: $sf1-color-white
+			min-height: 50px
+			padding: 10px
+			margin-top: 2px
+			white-space: pre-wrap
+			@include box-shadow( 0 0 10px $box-shadow-color)
+		.text:after
+			border: 10px solid transparent
+			border-left-color: $sf1-color-white
+			border-right-width: 0px
+			right: 0px
+			content: ""
+			display: block
+			top: 15px
+			position: absolute
+			width: 0px
+		.info
+			display: block
+			height: 12px
+			margin-top: 5px
+		.recipient
+			display: none
+		.date
+			color: $supplement-color
+			display: inline-block
+			float: right
+			font-size: 12px
+.pm-header
+	height: 40px
+	width: 100%
+	position: absolute
+	top: 0px
+	padding-top: 10px
+	padding-left: 10px
+	padding-right: 10px
+	color: $title-color
+	font-size: 150%
+	.left
+		display: inline-block
+		float: left
+	.right
+		display: inline-block
+		float: right
+.pm-contents
+	padding-top: 40px
+	padding-bottom: 10px
+	padding-left: 10px
+	padding-right: 10px
+	textarea
+		width: 100%
+	.pm-large-btn
+		height: 100%
+		padding-top: 0px
+		padding-bottom: 0px
+.pm-loading
+	margin: 0 auto
+	text-align: center
+.pm-placefolder
+	color: $supplement-color

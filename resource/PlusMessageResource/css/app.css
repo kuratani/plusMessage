@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/* line 17, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_timeline.sass */
+body {
+  background-color: #f0f1f2;
+  font-family: "Lucida Grande", "segoe UI", "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+}
+
+/* line 4, ../sass/_timeline.sass */
+header {
+  background-color: #f0f1f2;
+}
+
+/* line 6, ../sass/_timeline.sass */
+a {
+  text-decoration: none;
+}
+
+/* line 8, ../sass/_timeline.sass */
+.modal-header {
+  padding: 8px;
+}
+
+/* line 10, ../sass/_timeline.sass */
+.modal-body {
+  padding: 8px;
+}
+
+/* line 12, ../sass/_timeline.sass */
+.modal-footer {
+  padding: 8px;
+}
+
+/* line 15, ../sass/_timeline.sass */
+.list-group .thumbs {
+  display: block;
+  position: absolute;
+  height: 50px;
+  overflow: visible;
+  z-index: 2;
+}
+/* line 21, ../sass/_timeline.sass */
+.list-group .thumbs .thumb {
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50px 50px;
+  -moz-border-radius: 50px / 50px;
+  border-radius: 50px / 50px;
+}
+/* line 30, ../sass/_timeline.sass */
+.list-group .list-item {
+  margin-left: 60px;
+  min-height: 50px;
+  position: relative;
+}
+/* line 34, ../sass/_timeline.sass */
+.list-group .list-item .info {
+  display: block;
+  height: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* line 39, ../sass/_timeline.sass */
+.list-group .list-item .info .recipient {
+  color: #2a94d6;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+}
+/* line 44, ../sass/_timeline.sass */
+.list-group .list-item .info .date {
+  color: #aaaaaa;
+  display: inline-block;
+  float: right;
+  right: -60px;
+  font-size: 12px;
+}
+/* line 50, ../sass/_timeline.sass */
+.list-group .list-item .text {
+  white-space: pre-wrap;
+}
+/* line 52, ../sass/_timeline.sass */
+.list-group .profile {
+  min-height: 30px;
+  position: relative;
+}
+/* line 55, ../sass/_timeline.sass */
+.list-group .profile .thumb {
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 30px 30px;
+  -moz-border-radius: 30px / 30px;
+  border-radius: 30px / 30px;
+}
+/* line 64, ../sass/_timeline.sass */
+.list-group .profile .name {
+  color: #2a94d6;
+  margin-left: 40px;
+  font-size: 16px;
+}
+/* line 68, ../sass/_timeline.sass */
+.list-group .profile .title {
+  color: #aaaaaa;
+  margin-left: 40px;
+  font-size: 12px;
+}
+
+/* line 73, ../sass/_timeline.sass */
+.list-view .thumbs {
+  display: block;
+  position: absolute;
+  height: 50px;
+  overflow: visible;
+  z-index: 2;
+}
+/* line 79, ../sass/_timeline.sass */
+.list-view .thumbs .thumb {
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50px 50px;
+  -moz-border-radius: 50px / 50px;
+  border-radius: 50px / 50px;
+}
+/* line 88, ../sass/_timeline.sass */
+.list-view .other-message {
+  margin-left: 60px;
+  position: relative;
+  padding-bottom: 14px;
+  padding-right: 40px;
+}
+/* line 93, ../sass/_timeline.sass */
+.list-view .other-message .text {
+  color: #344a5f;
+  background-color: white;
+  min-height: 50px;
+  padding: 10px;
+  margin-top: 2px;
+  white-space: pre-wrap;
+  -webkit-box-shadow: 0 0 10px #dddddd;
+  -moz-box-shadow: 0 0 10px #dddddd;
+  box-shadow: 0 0 10px #dddddd;
+}
+/* line 101, ../sass/_timeline.sass */
+.list-view .other-message .text:after {
+  border: 10px solid transparent;
+  border-right-color: white;
+  border-left-width: 0px;
+  left: -10px;
+  content: "";
+  display: block;
+  top: 15px;
+  position: absolute;
+  width: 0px;
+}
+/* line 111, ../sass/_timeline.sass */
+.list-view .other-message .info {
+  display: block;
+  height: 12px;
+  margin-top: 5px;
+}
+/* line 115, ../sass/_timeline.sass */
+.list-view .other-message .recipient {
+  color: #2a94d6;
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+}
+/* line 120, ../sass/_timeline.sass */
+.list-view .other-message .date {
+  color: #aaaaaa;
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+}
+/* line 125, ../sass/_timeline.sass */
+.list-view .my-message {
+  margin-left: 100px;
+  position: relative;
+  padding-bottom: 14px;
+  padding-right: 10px;
+}
+/* line 130, ../sass/_timeline.sass */
+.list-view .my-message .text {
+  color: #344a5f;
+  background-color: white;
+  min-height: 50px;
+  padding: 10px;
+  margin-top: 2px;
+  white-space: pre-wrap;
+  -webkit-box-shadow: 0 0 10px #dddddd;
+  -moz-box-shadow: 0 0 10px #dddddd;
+  box-shadow: 0 0 10px #dddddd;
+}
+/* line 138, ../sass/_timeline.sass */
+.list-view .my-message .text:after {
+  border: 10px solid transparent;
+  border-left-color: white;
+  border-right-width: 0px;
+  right: 0px;
+  content: "";
+  display: block;
+  top: 15px;
+  position: absolute;
+  width: 0px;
+}
+/* line 148, ../sass/_timeline.sass */
+.list-view .my-message .info {
+  display: block;
+  height: 12px;
+  margin-top: 5px;
+}
+/* line 152, ../sass/_timeline.sass */
+.list-view .my-message .recipient {
+  display: none;
+}
+/* line 154, ../sass/_timeline.sass */
+.list-view .my-message .date {
+  color: #aaaaaa;
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+}
+
+/* line 159, ../sass/_timeline.sass */
+.pm-header {
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #2a94d6;
+  font-size: 150%;
+}
+/* line 169, ../sass/_timeline.sass */
+.pm-header .left {
+  display: inline-block;
+  float: left;
+}
+/* line 172, ../sass/_timeline.sass */
+.pm-header .right {
+  display: inline-block;
+  float: right;
+}
+
+/* line 175, ../sass/_timeline.sass */
+.pm-contents {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 180, ../sass/_timeline.sass */
+.pm-contents textarea {
+  width: 100%;
+}
+/* line 182, ../sass/_timeline.sass */
+.pm-contents .pm-large-btn {
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* line 186, ../sass/_timeline.sass */
+.pm-loading {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 189, ../sass/_timeline.sass */
+.pm-placefolder {
+  color: #aaaaaa;
+}

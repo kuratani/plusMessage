@@ -1,0 +1,191 @@
+<apex:page docType="html-5.0" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" controller="PlusMessageCtrl">
+<html lang="ja" data-framework="angularjs">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+		<title>Chatter Message</title>
+		<apex:stylesheet value="{!URLFOR($Resource.PlusMessageResource,'css/bootstrap.min.css')}" />
+		<apex:stylesheet value="{!URLFOR($Resource.PlusMessageResource,'css/app.css')}" />
+	</head>
+	<body ng-app="msgapp" ng-init="userId='{!$User.Id}'; languageLocaleKey='{!languageLocaleKey}'">
+		<ng-view />
+
+		<!-- conversations.html -->
+		<script type="text/ng-template" id="conversations.html">
+			<section id="msgapp">
+				<div class="pm-header">
+					<div class="left">+Message</div>
+					<a href="#/send/" class="right"><span class="glyphicon glyphicon-edit pm-large"/></a>
+				</div>
+				<div class="pm-contents">
+					<div class="alert alert-danger" ng-show="err!=null">{{err.message}}</div>
+					<div class="pm-loading" ng-show="loading">
+						<img src="{!URLFOR($Resource.PlusMessageResource, 'images/loading.gif')}" />
+					</div>
+					<div class="list-group">
+						<a href="#/{{conv.id}}" class="list-group-item" ng-repeat="conv in convs.conversations">
+							<div class="thumbs">
+								<img class="thumb" src="{{conv.latestMessage.sender.photo.smallPhotoUrl}}" />
+							</div>
+							<div class="list-item">
+								<div class="info">
+									<h2 class="recipient">{{conv.latestMessage.sender.name}}</h2>
+									<div class="date">{{conv.latestMessage.sentDate}}</div>
+								</div>
+								<div>{{conv.latestMessage.body.text}}</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+		</script><!-- conversations.html -->
+
+		<!-- send-message.html -->
+		<script type="text/ng-template" id="send-message.html">
+			<section id="msgapp">
+				<div class="pm-header">
+					<a href="#/" class="left"><span class="glyphicon glyphicon-chevron-left pm-large"/></a>
+				</div>
+				<div class="pm-contents">
+					<div class="alert alert-danger" ng-show="err!=null">{{err.message}}</div>
+					<div class="input-group">
+						<textarea name="message" ng-model="message" class="form-control" placeholder="{{ 'MESSAGE' | translate }}"></textarea>
+						<div class="input-group-btn"><button type="button" class="btn btn-primary btn-large pm-large-btn" ng-click="sendMessage()" translate="SEND">Send</button></div>
+					</div>
+					<div class="pm-loading" ng-show="loading">
+						<img src="{!URLFOR($Resource.PlusMessageResource, 'images/loading.gif')}" />
+					</div>
+					<div style="padding-top: 14px">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-info">
+								<span translate="RECIPIENTS">Recipients</span>
+								<span style="padding-left: 14px;"><a ng-click="openSearchUsers()" ng-show="members.length<9"><span class="glyphicon glyphicon-plus"/></a></span></li>
+							<li class="list-group-item pm-placefolder" ng-show="members.length==0" translate="NO_RECIPIENTS_MESSAGE">Add Recipients</li>
+							<li class="list-group-item" ng-repeat="member in members">
+								<div class="profile">
+									<img class="thumb" src="{{member.photo.smallPhotoUrl}}" />
+									<div class="name">{{member.name}}</div>
+									<div class="title">{{member.title}}</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</script><!-- send-message.html -->
+
+		<!-- search-users-dialog.html -->
+		<script type="text/ng-template" id="search-user-dialog.html">
+			<div class="modal-header">
+				<div class="input-group">
+					<span class="input-group-addon">@</span>
+					<input type="text" name="query" ng-model="searchUsers.query"class="form-control" placeholder="{{ 'RECIPIENTS' | translate }}" x-webkit-speech lang="ja"/>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="alert alert-danger" ng-show="errDialog!=null">{{errDialog.message}}</div>
+				<div class="pm-loading" ng-show="loadingDialog">
+					<img src="{!URLFOR($Resource.PlusMessageResource, 'images/loading.gif')}" />
+				</div>
+				<form role="form">
+					<div class="list-group" ng-hide="loadingDialog">
+						<div class="list-group-item pm-placefolder" ng-show="users.length==0" translate="NO_MATCH_USER_MESSAGE">No match user</div>
+						<a class="list-group-item" ng-repeat="user in users" ng-click="addUser(user)">
+							<div class="profile">
+								<img class="thumb" src="{{user.photo.smallPhotoUrl}}" />
+								<div class="name">{{user.name}}</div>
+								<div class="title">{{user.title}}</div>
+							</div>
+						</a>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" ng-click="$close()" translate="CLOSE">Close</button>
+			</div>
+		</script><!-- search-users-dialog.html -->
+
+		<!-- messages.html -->
+		<script type="text/ng-template" id="messages.html">
+			<section id="msgapp">
+				<div class="pm-header">
+					<a href="#/" class="left"><span class="glyphicon glyphicon-chevron-left pm-large"/></a>
+					<a class="right" ng-click="openUsersDialog()"><span class="glyphicon glyphicon-user pm-large"/></a>
+				</div>
+				<div class="pm-contents">
+					<div class="alert alert-danger" ng-show="err!=null">{{err.message}}</div>
+					<div class="input-group">
+						<textarea name="message" ng-model="message" class="form-control" placeholder="{{ 'MESSAGE' | translate }}"></textarea>
+						<div class="input-group-btn"><button type="button" class="btn btn-primary btn-large pm-large-btn" ng-click="replyToMessage()" translate="SEND">Send</button></div>
+					</div>
+					<div class="pm-loading" ng-show="loading">
+						<img src="{!URLFOR($Resource.PlusMessageResource, 'images/loading.gif')}" />
+					</div>
+					<ul class="list-view" ng-hide="loading">
+						<li ng-repeat="msg in msgs.messages.messages">
+							<div class="thumbs" ng-hide="{{msg.isMine}}">
+								<img class="thumb" src="{{msg.sender.photo.smallPhotoUrl}}" />
+							</div>
+							<div class="{{msg.msgClass}}-message">
+								<div class="info">
+									<div class="recipient">
+										{{msg.sender.name}}
+									</div>
+									<div class="date">
+										{{msg.sentDate}}
+									</div>
+								</div>
+								<div class="text">{{msg.body.text}}</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</script><!-- messages.html -->
+
+		<!-- users-dialog.html -->
+		<script type="text/ng-template" id="users-dialog.html">
+			<div class="modal-header" translate="MEMBER">
+				Member
+			</div>
+			<div class="modal-body">
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="member in msgs.members">
+						<div class="profile">
+							<img class="thumb" src="{{member.photo.smallPhotoUrl}}" />
+							<div class="name">{{member.name}}</div>
+							<div class="title">{{member.title}}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" ng-click="$close()" translate="CLOSE">Close</button>
+			</div>
+		</script><!-- susers-dialog.html -->
+
+
+		<!-- waiting-dialog.html -->
+		<script type="text/ng-template" id="waiting-dialog.html">
+			<div class="modal-header" translate="SENDING_MESSAGE">
+				Sending...
+			</div>
+			<div class="modal-body">
+				<div class="pm-loading">
+					<img src="{!URLFOR($Resource.PlusMessageResource, 'images/loading.gif')}" />
+				</div>
+			</div>
+		</script><!-- waiting-dialog.html -->
+
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/angular.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/angular-route.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/angular-translate.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/ui-bootstrap-tpls-0.10.0.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/jquery-2.1.0.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageResource, 'js/bootstrap.min.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageJS, 'app.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageJS, 'controllers/messageCtrl.js')}" />
+		<apex:includeScript value="{!URLFOR($Resource.PlusMessageJS, 'services/messageService.js')}" />
+	</body>
+</html>
+</apex:page>
