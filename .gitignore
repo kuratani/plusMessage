@@ -1,5 +1,6 @@
 .project
 .settings
+.sass-cache
 salesforce.schema
 Referenced Packages
 build.properties
