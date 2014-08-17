@@ -3,7 +3,7 @@ public with sharing class PlusMessageCtrl {
 		set;
 		get {
 			if(languageLocaleKey == null) {
-				languageLocaleKey = [select LanguageLocaleKey, LocaleSidKey from User where Id = :UserInfo.getUserId()].LanguageLocaleKey;
+				languageLocaleKey = ConnectApi.Organization.getSettings().UserSettings.userLocale;
 			}
 			return languageLocaleKey;
 		}
@@ -36,7 +36,7 @@ public with sharing class PlusMessageCtrl {
 
 	@RemoteAction
 	public static String getUsers() {
-        ConnectApi.UserPage users = ConnectApi.ChatterUsers.getUsers(null);
+		ConnectApi.UserPage users = ConnectApi.ChatterUsers.getUsers(null);
 		return JSON.serialize(users);
 	}
 
