@@ -1,9 +1,14 @@
 ＋Message
 ==================
-Salesforce1でChatterメッセージを利用するためのアプリケーション
+<a href="https://githubsfdeploy.herokuapp.com?owner=kuratani&repo=plusMessage">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
 
 はじめに
 --------
+Salesforce1でChatterメッセージを利用するためのアプリケーション
+
 これまでSalesforce1でChatterメッセージを利用できないことで、社員間のメッセージングがLINEなどのコンシューマ向けサービスなどのシャドーITで行われ、セキュリティリスクになっていました。
 
 ＋Messageは、Salesforce1でChatterメッセージを利用できるようにするためのアプリケーションであり、シャドーITによるセキュリティリスクを緩和します。加えて、メッセージングも含めてSalesforce1上で完結できるようになり、ユーザとしての利便性も向上します。
